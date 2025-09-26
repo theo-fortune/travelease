@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import * as React from "react";
 
-export default function EmailVerificationPage() {
+function EmailVerificationForm() {
   const [otpValues, setOtpValues] = useState<string[]>(["", "", "", "", ""]);
   const inputRefs = [0, 1, 2, 3, 4].map(() =>
     React.useRef<HTMLInputElement>(null)
@@ -93,5 +93,36 @@ export default function EmailVerificationPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function EmailVerificationPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[80vh]">
+          <Card className="w-full max-w-md shadow-lg">
+            <CardHeader className="text-center flex flex-col items-center justify-center">
+              <div className="h-20 w-20 mb-4 mx-auto rounded-full bg-muted animate-pulse" />
+              <div className="h-8 w-48 mb-2 bg-muted rounded animate-pulse" />
+              <div className="h-4 w-64 bg-muted rounded animate-pulse" />
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-center gap-2 mb-6">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
+                    key={i}
+                    className="w-14 h-14 bg-muted rounded-lg animate-pulse"
+                  />
+                ))}
+              </div>
+              <div className="w-full h-12 bg-muted rounded-xl animate-pulse" />
+            </CardContent>
+          </Card>
+        </div>
+      }
+    >
+      <EmailVerificationForm />
+    </Suspense>
   );
 }
