@@ -68,7 +68,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full max-w-full overflow-x-hidden">
             {/* Hero Section */}
             <section className="relative">
               <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col-reverse gap-8 py-12 md:flex-row md:items-center md:py-24 lg:py-32">
@@ -91,13 +91,13 @@ export default function Home() {
                     </Button>
                   </div>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 max-w-full">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/landingpage2.jpg-m2dYtL9cUYIFI4gijbLcG4ogCsM8e2.jpeg"
                     alt="People discussing travel plans"
                     width={600}
                     height={400}
-                    className="rounded-lg object-cover"
+                    className="rounded-lg object-cover w-full h-auto max-w-full"
                     priority
                   />
                 </div>
