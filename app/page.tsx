@@ -1,29 +1,57 @@
-"use client"
+"use client";
 
-import { BackgroundPaths } from "@/components/ui/background-paths"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Star } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { BackgroundPaths } from "@/components/ui/background-paths";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Star,
+  DollarSign,
+  MapPin,
+  AppWindow,
+  CalculatorIcon,
+  Cloud,
+  PiggyBank,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import HowItWorksSection from "@/components/ui/how-it-works";
+import KeyFeaturesSection from "@/components/ui/key-features";
+import ProofSection from "@/components/ui/proof-section";
+import TestimonialsSection from "@/components/ui/testimonials-section";
+import SocialProofSection from "@/components/ui/social-proof-section";
+import PricingSection from "@/components/ui/pricing-section";
+import MarketAdvantageSection from "@/components/ui/market-advantage-section";
+import FaqSection from "@/components/ui/faq-section";
+import CtaSection from "@/components/ui/cta-section";
 
 export default function Home() {
-  const [showLanding, setShowLanding] = useState(true)
+  const [showLanding, setShowLanding] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowLanding(false)
-    }, 5000) // Adjust this value to change how long the landing page is shown
+      setShowLanding(false);
+    }, 5000); // Adjust this value to change how long the landing page is shown
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <AnimatePresence>
       {showLanding ? (
-        <motion.div key="landing" initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
+        <motion.div
+          key="landing"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
           <BackgroundPaths title="TravelEase Your Gateway" />
           <Button
             variant="ghost"
@@ -34,19 +62,25 @@ export default function Home() {
           </Button>
         </motion.div>
       ) : (
-        <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <motion.div
+          key="home"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <div className="flex flex-col">
             {/* Hero Section */}
             <section className="relative">
-              <div className="container flex flex-col-reverse gap-8 py-12 md:flex-row md:items-center md:py-24 lg:py-32">
+              <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col-reverse gap-8 py-12 md:flex-row md:items-center md:py-24 lg:py-32">
                 <div className="flex-1 space-y-4">
                   <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
                     Experience Hassle-Free Travel With Our Services
                   </h1>
                   <p className="text-xl text-muted-foreground">
-                    Our travel agency simplifies the booking process, ensuring you spend less time planning and more
-                    time enjoying your journey. With expert visa assistance and personalized customer service, we cater
-                    to your unique travel needs.
+                    Our travel agency simplifies the booking process, ensuring
+                    you spend less time planning and more time enjoying your
+                    journey. With expert visa assistance and personalized
+                    customer service, we cater to your unique travel needs.
                   </p>
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <Button size="lg" asChild>
@@ -70,22 +104,175 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Services Section */}
-            <section className="bg-muted py-12 md:py-24">
-              <div className="container">
+            {/* The Problem Section */}
+            <section className="py-12 md:py-24">
+              <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 <div className="mx-auto max-w-[58rem] text-center">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                    Simplifying Your Travel: Booking Tickets and Visa Information Made Easy
+                    The Problem
+                  </h2>
+                  <p className="mt-4 text-xl text-muted-foreground">
+                    Why Travel Planning Feels Stressful
+                  </p>
+                </div>
+                <div className="mx-auto mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <DollarSign className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>Budget Uncertainty & Overspending</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        73% of travelers exceed their budget by $240–$380 on a
+                        week-long trip.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <MapPin className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>Poor Planning & Generic Advice</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        Travelers pack wrong clothes, waste money on tourist
+                        traps, and get generic recommendations.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <AppWindow className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>Fragmented Tools</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        Google Maps, travel apps, and budgeting apps don't talk
+                        to each other — leaving travelers stressed and
+                        unprepared.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </section>
+
+            {/* The Solution Section */}
+            <section className="bg-muted py-12 md:py-24">
+              <div className="container mx-auto px-4 md:px-6 lg:px-8">
+                <div className="mx-auto max-w-[58rem] text-center">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                    The Solution
+                  </h2>
+                  <p className="mt-4 text-xl text-muted-foreground">
+                    AI-Powered Travel Finance Intelligence
+                  </p>
+                  <p className="mt-4 text-muted-foreground">
+                    The only platform combining AI budget optimization, weather
+                    intelligence, and local expertise — making travel
+                    financially smart, not just fun.
+                  </p>
+                </div>
+                <div className="mx-auto mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                  <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <CalculatorIcon className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>Budget-First Planning</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        Smart budget allocation and real-time spending tracking.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <Cloud className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>Weather-Smart Intelligence</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        7-day trends + 14-day forecasts with activity
+                        recommendations.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <PiggyBank className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>10% Savings Guarantee</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        Save $140–$280 per trip with AI-driven optimization.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <MapPin className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>Local Expertise</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        Insider tips, price-categorized dining, and real-time
+                        local deals.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </section>
+
+            {/* How It Works Section */}
+            <HowItWorksSection />
+
+            {/* Key Features Section */}
+            <KeyFeaturesSection />
+
+            {/* Proof & ROI Section */}
+            <ProofSection />
+
+            {/* Testimonials Section */}
+            <TestimonialsSection />
+
+            {/* Social Proof Section */}
+            <SocialProofSection />
+
+            {/* Services Section */}
+            <section className="bg-muted py-12 md:py-24">
+              <div className="container mx-auto px-4 md:px-6 lg:px-8">
+                <div className="mx-auto max-w-[58rem] text-center">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                    Simplifying Your Travel: Booking Tickets and Visa
+                    Information Made Easy
                   </h2>
                   <p className="mt-4 text-muted-foreground">
-                    Choose your destination and travel dates to begin your journey
+                    Choose your destination and travel dates to begin your
+                    journey
                   </p>
                 </div>
                 <div className="mx-auto mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   <Card>
                     <CardHeader>
                       <CardTitle>Seamless Ticket Booking</CardTitle>
-                      <CardDescription>Book flights easily with our user-friendly platform</CardDescription>
+                      <CardDescription>
+                        Book flights easily with our user-friendly platform
+                      </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <Link href="/services/ticket-booking">
@@ -96,7 +283,9 @@ export default function Home() {
                   <Card>
                     <CardHeader>
                       <CardTitle>Student Visa Guidance</CardTitle>
-                      <CardDescription>Get the latest information on student visas</CardDescription>
+                      <CardDescription>
+                        Get the latest information on student visas
+                      </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <Link href="/services/student-visa">
@@ -107,7 +296,9 @@ export default function Home() {
                   <Card>
                     <CardHeader>
                       <CardTitle>Business Visa Solutions</CardTitle>
-                      <CardDescription>Navigate business visa requirements with ease</CardDescription>
+                      <CardDescription>
+                        Navigate business visa requirements with ease
+                      </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <Link href="/services/business-visa">
@@ -119,87 +310,20 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Testimonials Section */}
-            <section className="py-12 md:py-24">
-              <div className="container">
-                <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl">Customer Testimonials</h2>
-                <p className="mt-4 text-center text-muted-foreground">
-                  Our clients love the seamless booking experience!
-                </p>
-                <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                  {testimonials.map((testimonial, index) => (
-                    <Card key={index}>
-                      <CardHeader>
-                        <div className="flex items-center gap-2">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                          ))}
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground">{testimonial.text}</p>
-                        <div className="mt-4 flex items-center gap-4">
-                          <Image
-                            src={testimonial.avatar || "/placeholder.svg"}
-                            alt={testimonial.name}
-                            width={40}
-                            height={40}
-                            className="rounded-full"
-                          />
-                          <div>
-                            <p className="font-semibold">{testimonial.name}</p>
-                            <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </section>
+            {/* Market Advantage Section */}
+            <MarketAdvantageSection />
+
+            {/* Pricing Section */}
+            <PricingSection />
+
+            {/* FAQ Section */}
+            <FaqSection />
 
             {/* CTA Section */}
-            <section className="bg-primary py-12 text-primary-foreground md:py-24">
-              <div className="container text-center">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Start Your Journey Today</h2>
-                <p className="mx-auto mt-4 max-w-[600px] text-primary-foreground/80">
-                  Let us help you plan your next adventure. Contact our team for personalized assistance.
-                </p>
-                <div className="mt-8 flex justify-center gap-4">
-                  <Button size="lg" variant="secondary" asChild>
-                    <Link href="/contact">Contact Us</Link>
-                  </Button>
-                  <Button size="lg" variant="outline" className="bg-transparent" asChild>
-                    <Link href="/services">Learn More</Link>
-                  </Button>
-                </div>
-              </div>
-            </section>
+            <CtaSection />
           </div>
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
-
-const testimonials = [
-  {
-    text: "The service was exceptional and saved me so much time!",
-    name: "John Doe",
-    title: "Student, University",
-    avatar: "/placeholder.svg",
-  },
-  {
-    text: "I couldn't have asked for a better travel agency!",
-    name: "Jane Smith",
-    title: "Manager, Company",
-    avatar: "/placeholder.svg",
-  },
-  {
-    text: "They made my visa process so easy and stress-free!",
-    name: "Emily Johnson",
-    title: "Entrepreneur, Startup",
-    avatar: "/placeholder.svg",
-  },
-]
-

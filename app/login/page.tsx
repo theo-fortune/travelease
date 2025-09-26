@@ -114,7 +114,6 @@ export default function LoginPage() {
               variant="outline"
               className="w-full flex items-center justify-center gap-2"
             >
-              {/* Google SVG */}
               <img
                 src="https://res.cloudinary.com/dxu5abgqw/image/upload/v1758453895/devicon_google_cxs9oc.svg"
                 alt="Google"

@@ -1,8 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Star } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Star } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -15,9 +21,10 @@ export default function HomePage() {
               Experience Hassle-Free Travel With Our Services
             </h1>
             <p className="text-xl text-muted-foreground">
-              Our travel agency simplifies the booking process, ensuring you spend less time planning and more time
-              enjoying your journey. With expert visa assistance and personalized customer service, we cater to your
-              unique travel needs.
+              Our travel agency simplifies the booking process, ensuring you
+              spend less time planning and more time enjoying your journey. With
+              expert visa assistance and personalized customer service, we cater
+              to your unique travel needs.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button size="lg" asChild>
@@ -46,15 +53,20 @@ export default function HomePage() {
         <div className="container">
           <div className="mx-auto max-w-[58rem] text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Simplifying Your Travel: Booking Tickets and Visa Information Made Easy
+              Simplifying Your Travel: Booking Tickets and Visa Information Made
+              Easy
             </h2>
-            <p className="mt-4 text-muted-foreground">Choose your destination and travel dates to begin your journey</p>
+            <p className="mt-4 text-muted-foreground">
+              Choose your destination and travel dates to begin your journey
+            </p>
           </div>
           <div className="mx-auto mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader>
                 <CardTitle>Seamless Ticket Booking</CardTitle>
-                <CardDescription>Book flights easily with our user-friendly platform</CardDescription>
+                <CardDescription>
+                  Book flights easily with our user-friendly platform
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <Link href="/services/ticket-booking">
@@ -65,7 +77,9 @@ export default function HomePage() {
             <Card>
               <CardHeader>
                 <CardTitle>Student Visa Guidance</CardTitle>
-                <CardDescription>Get the latest information on student visas</CardDescription>
+                <CardDescription>
+                  Get the latest information on student visas
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <Link href="/services/student-visa">
@@ -76,7 +90,9 @@ export default function HomePage() {
             <Card>
               <CardHeader>
                 <CardTitle>Business Visa Solutions</CardTitle>
-                <CardDescription>Navigate business visa requirements with ease</CardDescription>
+                <CardDescription>
+                  Navigate business visa requirements with ease
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <Link href="/services/business-visa">
@@ -91,15 +107,22 @@ export default function HomePage() {
       {/* Testimonials Section */}
       <section className="py-12 md:py-24">
         <div className="container">
-          <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl">Customer Testimonials</h2>
-          <p className="mt-4 text-center text-muted-foreground">Our clients love the seamless booking experience!</p>
+          <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl">
+            Customer Testimonials
+          </h2>
+          <p className="mt-4 text-center text-muted-foreground">
+            Our clients love the seamless booking experience!
+          </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
               <Card key={index}>
                 <CardHeader>
                   <div className="flex items-center gap-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-primary text-primary"
+                      />
                     ))}
                   </div>
                 </CardHeader>
@@ -115,7 +138,9 @@ export default function HomePage() {
                     />
                     <div>
                       <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.title}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -128,22 +153,30 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="bg-primary py-12 text-primary-foreground md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Start Your Journey Today</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+            Start Your Journey Today
+          </h2>
           <p className="mx-auto mt-4 max-w-[600px] text-primary-foreground/80">
-            Let us help you plan your next adventure. Contact our team for personalized assistance.
+            Let us help you plan your next adventure. Contact our team for
+            personalized assistance.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">Contact Us</Link>
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-transparent"
+              asChild
+            >
               <Link href="/services">Learn More</Link>
             </Button>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 const testimonials = [
@@ -165,5 +198,4 @@ const testimonials = [
     title: "Entrepreneur, Startup",
     avatar: "/placeholder.svg",
   },
-]
-
+];
